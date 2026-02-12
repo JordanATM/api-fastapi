@@ -1,22 +1,21 @@
-# main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
 
 # Configurar quién puede entrar
 origins = [
     "http://localhost:5173",  # Tu app de React en desarrollo
-    "https://tu-dominio-de-frontend.com", # (Opcional) Tu app cuando la subas a internet
+    "https://tu-dominio-de-frontend.com",
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins, # O puedes poner ["*"] para permitir a TODO el mundo
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"], # Permite todos los métodos (GET, POST, etc.)
-    allow_headers=["*"], # Permite todos los encabezados
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
-
-app = FastAPI()
 
 @app.get("/")
 def read_root():
