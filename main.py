@@ -1,5 +1,7 @@
 # main.py
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 # Configurar quién puede entrar
 origins = [
     "http://localhost:5173",  # Tu app de React en desarrollo
