@@ -5,9 +5,12 @@ app = FastAPI()
 
 # Configurar quién puede entrar
 origins = [
-    "http://localhost:5173",  # Tu app de React en desarrollo
-    "https://tu-dominio-de-frontend.com",
+    app.add_middleware(
+    CORSMiddleware,
     allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 ]
 
 app.add_middleware(
