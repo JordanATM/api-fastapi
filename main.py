@@ -7,6 +7,7 @@ app = FastAPI()
 origins = [
     "http://localhost:5173",  # Tu app de React en desarrollo
     "https://tu-dominio-de-frontend.com",
+    allow_origins=["*"],
 ]
 
 app.add_middleware(
